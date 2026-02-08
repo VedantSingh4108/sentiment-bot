@@ -11,6 +11,8 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import matplotlib.pyplot as plt
 import seaborn as sns
 import time
+import pickle
+import os
 
 # Download NLTK stopwords (first time only)
 try:
@@ -176,4 +178,31 @@ for i, review in enumerate(test_reviews, 1):
 
 print("\n" + "="*60)
 print("Analysis complete! Check 'confusion_matrix.png' for visualization.")
+print("="*60)
+# At the END of sentiment_analysis.py, add this:
+
+# ============================================================
+# SAVE MODEL AND VECTORIZER
+# ============================================================
+
+print("\n" + "="*60)
+print("SAVING MODEL FOR FUTURE USE")
+print("="*60)
+
+# Create models directory if it doesn't exist
+os.makedirs('models', exist_ok=True)
+
+# Save the trained model
+with open('models/sentiment_model.pkl', 'wb') as f:
+    pickle.dump(model, f)
+print("✓ Model saved to 'models/sentiment_model.pkl'")
+
+# Save the vectorizer
+with open('models/vectorizer.pkl', 'wb') as f:
+    pickle.dump(vectorizer, f)
+print("✓ Vectorizer saved to 'models/vectorizer.pkl'")
+
+print("="*60)
+print("Model training and saving complete!")
+print("You can now run: streamlit run app.py")
 print("="*60)
