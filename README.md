@@ -53,6 +53,17 @@ sentiment-bot/
 ├── requirements.txt       # Dependencies
 └── README.md             # Documentation
 ```
+## Results
+- **Dataset**: IMDB 50,000 movie reviews
+- **Accuracy**: 88.95%
+- **Precision**: 89% (Negative), 88% (Positive)
+- **Training time**: 18.37 seconds (text processing) + 0.16 seconds (model training)
+- **Model**: Logistic Regression with TF-IDF vectorization
+
+### Top Predictive Features
+**Positive Indicators**: great, excellent, perfect, amazing, wonderful
+**Negative Indicators**: worst, awful, bad, waste, boring, terrible
+
 
 ## Author
-Your Name
+Vedant Singh
